@@ -6,7 +6,7 @@ driver = webdriver.Chrome("..\\drivers\\chromedriver.exe")
 # driver=webdriver.firefox()
 # driver=webdriver.ie()
 
-driver.set_page_load_timeout(30)
+driver.set_page_load_timeout(20)
 
 driver.get("https://www.amazon.in/")
 driver.maximize_window()
