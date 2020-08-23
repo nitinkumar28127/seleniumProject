@@ -20,15 +20,15 @@ class LoginTest(unittest.TestCase):
 
     def test_login_valid(self):
         self.driver.get("https://opensource-demo.orangehrmlive.com/")
-        login= LoginPage(self.driver)
+        login = LoginPage(self.driver)
         login.enter_username("Admin")
         login.enter_password("admin123")
         login.click_login()
-        home=HomePage(self.driver)
+        home = HomePage(self.driver)
         home.click_welcome()
         home.click_logout()
         time.sleep(2)
 
 
-if __name__=='__main__':
+if __name__ == '__main__':
     unittest.main()
