@@ -1,6 +1,5 @@
-import self as self
-
 from Locators.locators import Locators
+
 
 class LoginPage:
 
