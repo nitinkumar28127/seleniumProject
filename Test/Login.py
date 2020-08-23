@@ -1,14 +1,27 @@
 from selenium import webdriver
 import time
-from selenium.webdriver.common.keys import Keys
+import unittest
 
-driver = webdriver.Chrome("..\\drivers\\chromedriver.exe")
-# driver=webdriver.firefox()
-# driver=webdriver.ie()
 
-driver.set_page_load_timeout(20)
+class LoginTest(unittest.TestCase):
 
-driver.get("https://www.amazon.in/")
-driver.maximize_window()
-time.sleep(30)
-driver.quit()
+    @classmethod
+    def setUpClass(cls):
+        cls.driver = webdriver.Chrome("..\\drivers\\chromedriver.exe")
+        cls.driver.implicitly_wait(10)
+        cls.driver.maximize_window()
+
+    def test_login_valid(self):
+        self.driver.get("https://opensource-demo.orangehrmlive.com/")
+
+
+        time.sleep(2)
+
+    @classmethod
+    def tearDownClass(cls):
+        cls.driver.close()
+        cls.driver.quit()
+
+
+if __name__=='__main__':
+    unittest.main()
