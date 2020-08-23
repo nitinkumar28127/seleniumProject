@@ -1,7 +1,6 @@
-from selenium import webdriver
 import time
 import unittest
-
+from selenium import webdriver
 from Pages.homePage import HomePage
 from Pages.loginPage import LoginPage
 
@@ -14,6 +13,11 @@ class LoginTest(unittest.TestCase):
         cls.driver.implicitly_wait(20)
         cls.driver.maximize_window()
 
+    @classmethod
+    def tearDownClass(cls):
+        cls.driver.close()
+        cls.driver.quit()
+
     def test_login_valid(self):
         self.driver.get("https://opensource-demo.orangehrmlive.com/")
         login= LoginPage(self.driver)
@@ -24,11 +28,6 @@ class LoginTest(unittest.TestCase):
         home.click_welcome()
         home.click_logout()
         time.sleep(2)
-
-    @classmethod
-    def tearDownClass(cls):
-        cls.driver.close()
-        cls.driver.quit()
 
 
 if __name__=='__main__':
